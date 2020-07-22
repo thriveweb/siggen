@@ -1,0 +1,46 @@
+/* phpcs:ignore */
+
+/* Universal */
+#siggen_metabox_design .siggen-input-wrap input,
+#siggen_metabox_design .siggen-input-wrap select,
+#siggen_metabox_info .siggen-input-wrap input,
+#siggen_metabox_info .siggen-input-wrap textarea,
+#siggen_metabox_socials .siggen-input-wrap input {
+    width: 100%;
+    max-width: 100%;
+}
+#siggen_metabox_design .siggen-input-wrap input[type="radio"],
+#siggen_metabox_info .siggen-input-wrap input[type="radio"],
+#siggen_metabox_socials .siggen-input-wrap input[type="radio"] {
+    width: auto;
+}
+
+#siggen_metabox_design .siggen-input-wrap label,
+#siggen_metabox_info .siggen-input-wrap label,
+#siggen_metabox_socials .siggen-input-wrap label {
+    display: block;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+
+#siggen_metabox_design .siggen-input-wrap,
+#siggen_metabox_info .siggen-input-wrap,
+#siggen_metabox_socials .siggen-input-wrap {
+    margin: 1em 0 1.5em 0;
+}
+#siggen_metabox_design .siggen-input-wrap .description,
+#siggen_metabox_info .siggen-input-wrap .description,
+#siggen_metabox_socials .siggen-input-wrap .description {
+    display: block;
+    margin: 0 0 5px;
+}
+
+/* Design */
+#siggen_metabox_design .siggen-input-wrap .image_preview {
+    display: block;
+    margin: 0px auto;
+}
+
+#siggen_metabox_design .siggen-input-wrap input[type="button"] {
+    margin: 0 0 10px;
+}
