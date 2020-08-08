@@ -331,10 +331,10 @@ class SigGen_Settings {
 			//phpcs:disable
 			$current_section = '';
 			if ( isset( $_POST['tab'] ) && $_POST['tab'] ) {
-				$current_section = $_POST['tab'];
+				$current_section = number_int($_POST['tab']);
 			} else {
 				if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-					$current_section = $_GET['tab'];
+					$current_section = number_int($_GET['tab']);
 				}
 			}
 			//phpcs:enable
@@ -406,7 +406,7 @@ class SigGen_Settings {
 			$tab = '';
 		//phpcs:disable
 		if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-			$tab .= $_GET['tab'];
+			$tab .= number_int($_GET['tab']);
 		}
 		//phpcs:enable
 
