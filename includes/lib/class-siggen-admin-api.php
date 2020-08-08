@@ -241,7 +241,7 @@ class SigGen_Admin_API {
 
 		switch ( $type ) {
 			case 'text':
-				$data = sanitize_text_field( $data );
+				$data = esc_attr ( sanitize_text_field( $data ) );
 				//error_log($data . "\r\n", 3, plugin_dir_path(__FILE__)."mylog.log");
 				break;
 			case 'url':
