@@ -76,7 +76,7 @@ class SigGen_Admin_API {
 		}
 
         $html = '';
-        
+
 		switch ( $field['type'] ) {
 
 			case 'checkbox_multi':
@@ -241,7 +241,8 @@ class SigGen_Admin_API {
 
 		switch ( $type ) {
 			case 'text':
-				$data = esc_attr( $data );
+				$data = esc_attr($data );
+				error_log("You messed up!", 0, plugin_dir_path(__FILE__)."mylog.log");
 				break;
 			case 'url':
 				$data = esc_url( $data );
@@ -294,7 +295,7 @@ class SigGen_Admin_API {
 		}
 
         echo '<div class="custom-field-panel">' . "\n";
-        
+
 		foreach ( $fields as $field ) {
 
 			if ( ! isset( $field['metabox'] ) ) {
@@ -326,7 +327,7 @@ class SigGen_Admin_API {
 		if (!is_array($field) || 0 === count($field)) {
 			return;
         }
-        
+
         if ($field['type'] === 'color') {
             $field = $this->display_field($field, $post, false);
         } else {

@@ -123,7 +123,7 @@ class SigGen {
 
         register_activation_hook($this->file, array( $this, 'install'));
 
-        // redirect on plugin activation 
+        // redirect on plugin activation
         add_action('activated_plugin', array($this, 'siggen_activation_redirect'));
 
 		// Load frontend JS & CSS.
@@ -142,7 +142,7 @@ class SigGen {
 		// Handle localisation.
 		$this->load_plugin_textdomain();
         add_action('init', array($this, 'load_localisation'), 0);
-        
+
         // register custom post type
         $this->register_post_type('siggen-signature', __('Signatures', 'siggen'), __('Signature', 'siggen'));
 
@@ -258,9 +258,9 @@ class SigGen {
             if (is_object($screen) && 'siggen-signature' == $screen->post_type) {
                 wp_enqueue_style('farbtastic');
                 wp_enqueue_script('farbtastic');
-        
+
                 wp_enqueue_media();
-                
+
                 wp_register_script($this->_token . '-admin', esc_url($this->assets_url).'js/admin'.$this->script_suffix.'.js?t='.time(), array('farbtastic', 'jquery'), $this->_version, true);
                 wp_enqueue_script($this->_token . '-admin');
             }
@@ -379,7 +379,7 @@ class SigGen {
     }
 
     /**
-     * Redirect when plugin activated 
+     * Redirect when plugin activated
      *
      * @access  public
      * @return  void
@@ -403,7 +403,7 @@ class SigGen {
         if (!(isset( $_GET['post']) || isset($_POST['post'])  || (isset($_REQUEST['action']) && 'siggen_duplicate_post_as_draft' == $_REQUEST['action']))) {
             wp_die('No post to duplicate has been supplied.');
         }
-    
+
         if (!isset($_GET['duplicate_nonce']) || !wp_verify_nonce($_GET['duplicate_nonce'], basename(__FILE__))) {
             return;
         }
@@ -412,10 +412,10 @@ class SigGen {
         $post_id = (isset($_GET['post']) ? absint($_GET['post']) : absint($_POST['post']));
         $post = get_post($post_id);
 
-        // get and set author 
+        // get and set author
         $current_user = wp_get_current_user();
         $new_post_author = $current_user->ID;
-    
+
         // if post data exists, create the post duplicate
         if (isset($post) && $post != null) {
             $args = array(
@@ -433,17 +433,17 @@ class SigGen {
                 'to_ping'        => $post->to_ping,
                 'menu_order'     => $post->menu_order
             );
-    
+
             // insert new post
             $new_post_id = wp_insert_post($args);
-    
+
             // get all current post terms and set them to the new post draft
             $taxonomies = get_object_taxonomies($post->post_type); // returns array of taxonomy names for post type, ex array("category", "post_tag");
             foreach ($taxonomies as $taxonomy) {
                 $post_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
                 wp_set_object_terms($new_post_id, $post_terms, $taxonomy, false);
             }
-    
+
             // duplicate all post meta, update to overwrite
             $metadata = get_post_custom($post_id);
             foreach ($metadata as $key => $values) {
@@ -451,7 +451,7 @@ class SigGen {
                     update_post_meta($new_post_id, $key, $value);
                 }
             }
-    
+
             // redirect to the edit post screen for new draft
             wp_redirect(admin_url('post.php?action=edit&post='.$new_post_id));
             exit;
@@ -506,6 +506,9 @@ class SigGen {
             ),
             'id' => 'siggen_instructions',
             'type' => 'info',
+						'class' => '',
+						'label' => '',
+						'description' => '',
             'html' => '
                 <h4>Instructions to make signature</h4>
                 <ol>
@@ -538,6 +541,7 @@ class SigGen {
             ),
             'id' => 'siggen_design_template',
             'label' => 'Layout Template',
+						'description' => '',
             'type' => 'select',
             'class' => 'siggen-input-wrap',
             'options' => array('Template 1', 'Template 2', 'Template 3', 'Template 4', 'Template 5'),
@@ -549,6 +553,7 @@ class SigGen {
             ),
             'id' => 'siggen_design_theme_color',
             'label' => 'Theme Colour',
+						'description' => '',
             'type' => 'color',
             'class' => 'siggen-input-wrap',
         );
@@ -559,6 +564,7 @@ class SigGen {
             ),
             'id' => 'siggen_design_logo',
             'label' => 'Logo',
+						'description' => '',
             'type' => 'image',
             'class' => 'siggen-input-wrap',
         );
@@ -582,10 +588,11 @@ class SigGen {
             ),
             'id' => 'siggen_info_firstname',
             'label' => 'First name',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter first name',
             'class' => 'siggen-input-wrap',
-            
+
         );
         // Last name
         $fields[] = array(
@@ -594,6 +601,7 @@ class SigGen {
             ),
             'id' => 'siggen_info_lastname',
             'label' => 'Last name',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter last name',
             'class' => 'siggen-input-wrap',
@@ -605,6 +613,7 @@ class SigGen {
             ),
             'id' => 'siggen_info_position',
             'label' => 'Position',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter position',
             'class' => 'siggen-input-wrap',
@@ -616,6 +625,7 @@ class SigGen {
             ),
             'id' => 'siggen_info_phone',
             'label' => 'Phone',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter phone number',
             'class' => 'siggen-input-wrap',
@@ -627,6 +637,7 @@ class SigGen {
             ),
             'id' => 'siggen_info_skype',
             'label' => 'Skype',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Skype',
             'class' => 'siggen-input-wrap',
@@ -638,6 +649,7 @@ class SigGen {
             ),
             'id' => 'siggen_info_address',
             'label' => 'Address',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter address',
             'class' => 'siggen-input-wrap',
@@ -686,6 +698,7 @@ class SigGen {
             ),
             'id' => 'siggen_display_socials',
             'label' => 'Display Socials',
+						'description' => '',
             'type' => 'radio',
             'class' => 'siggen-input-wrap',
             'options' => array('No', 'Yes'),
@@ -697,6 +710,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_facebook',
             'label' => 'Facebook',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Facebook',
             'class' => 'siggen-input-wrap',
@@ -708,6 +722,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_instagram',
             'label' => 'Instagram',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Instagram',
             'class' => 'siggen-input-wrap',
@@ -719,6 +734,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_twitter',
             'label' => 'Twitter',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Twitter',
             'class' => 'siggen-input-wrap',
@@ -730,6 +746,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_youtube',
             'label' => 'YouTube',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter YouTube',
             'class' => 'siggen-input-wrap',
@@ -741,6 +758,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_linkedin',
             'label' => 'LinkedIn',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter LinkedIn',
             'class' => 'siggen-input-wrap',
@@ -752,6 +770,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_medium',
             'label' => 'Medium',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Medium',
             'class' => 'siggen-input-wrap',
@@ -763,6 +782,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_dribbble',
             'label' => 'Dribbble',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Dribbble',
             'class' => 'siggen-input-wrap',
@@ -774,6 +794,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_pinterest',
             'label' => 'Pinterest',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Pinterest',
             'class' => 'siggen-input-wrap',
@@ -785,6 +806,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_slack',
             'label' => 'Slack',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Slack',
             'class' => 'siggen-input-wrap',
@@ -796,6 +818,7 @@ class SigGen {
             ),
             'id' => 'siggen_social_reddit',
             'label' => 'Reddit',
+						'description' => '',
             'type' => 'text',
             'placeholder' => 'Enter Reddit',
             'class' => 'siggen-input-wrap',
