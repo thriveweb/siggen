@@ -359,9 +359,10 @@ class SigGen {
         // disable comments for signature post types
         if ($post_type == 'siggen-signature') {
             return false;
+        } else if ($open) {
+            // allow comments for any other post types if allowed
+            return true;
         }
-        // allow comments for any other post types
-        return true;
     }
 
     /**

@@ -134,7 +134,7 @@ class SigGen_Post_Type {
 			'rest_controller_class' => 'WP_REST_Posts_Controller',
 			'supports'              => array( 'title', 'editor', 'excerpt', 'comments', 'thumbnail' ),
 			'menu_position'         => 5,
-			'menu_icon'             => 'dashicons-admin-post',
+			'menu_icon'             => 'dashicons-admin-customizer',
 		);
 
 		$args = array_merge( $args, $this->options );
