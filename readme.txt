@@ -5,7 +5,7 @@ Author URI: https://thriveweb.com.au/
 Tags: wordpress, plugin, email, signature, generator, template
 Requires at least: 4.0
 Tested up to: 5.7.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ Installing "THRIVE eSig Gen" can be done either by searching for "THRIVE eSig Ge
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Version bump
 
 = 1.0.1 =
 * Icon/Banner Images
