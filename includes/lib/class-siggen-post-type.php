@@ -119,7 +119,7 @@ class SigGen_Post_Type {
 			'description'           => $this->description,
 			'public'                => true,
 			'publicly_queryable'    => true,
-			'exclude_from_search'   => false,
+			'exclude_from_search'   => true,
 			'show_ui'               => true,
 			'show_in_menu'          => true,
 			'show_in_nav_menus'     => true,

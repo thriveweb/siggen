@@ -1,19 +1,19 @@
 <?php
 /**
  * Plugin Name: THRIVE eSig Gen
- * Version: 1.0.2
+ * Version: 1.0.3
  * Description: Enter your details and we will generator you an email signature.
  * Author: Thrive Web
  * Author URI: https://thriveweb.com.au
  * Requires at least: 4.0
- * Tested up to: 5.7.2
+ * Tested up to: 6.1.1
  *
  * Text Domain: siggen
  * Domain Path: /lang/
  *
  * @package WordPress
  * @author Thrive Web
- * @since 1.0.2
+ * @since 1.0.3
  */
 
 if (!defined('ABSPATH')) {

@@ -62,7 +62,7 @@ if ($siggen_design_template == 0) {
                 <tr>
                     <td style="padding: 25px 0 0 0; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
                         <?php if ($siggen_design_logo) { ?>
-                            <table cellspacing="0" cellpadding="0" align="left">
+                            <table cellspacing="0" cellpadding="0" align="left" style="float: left;">
                                 <tbody>
                                     <tr>
                                         <td style="mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
@@ -72,7 +72,7 @@ if ($siggen_design_template == 0) {
                                 </tbody>
                             </table>
                         <?php } ?>
-                        <table cellspacing="0" cellpadding="0" align="left" style="border-left:1px solid <?php echo $siggen_design_theme_color; ?>;padding:0 0 0 25px;">
+                        <table cellspacing="0" cellpadding="0" align="left" style="border-left:1px solid <?php echo $siggen_design_theme_color; ?>;padding:0 0 0 25px; float: left;">
                             <tbody>
                                 <tr>
                                     <td style="color:#222222;color:#222222 !important;font-family:&#39;Roboto&#39;, Arial, sans-serif;font-weight:normal;letter-spacing:1px;font-size:13px;text-decoration:none !important;mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
@@ -357,7 +357,7 @@ if ($siggen_design_template == 0) {
                 <tr>
                     <td style="padding: 25px 0 0 28px; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
                         <?php if ($siggen_design_logo) { ?>
-                            <table cellspacing="0" cellpadding="0" align="left">
+                            <table cellspacing="0" cellpadding="0" align="left" style="float: left;">
                                 <tbody>
                                     <tr>
                                         <td style="padding: 0px 37px 0 0; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
@@ -367,7 +367,7 @@ if ($siggen_design_template == 0) {
                                 </tbody>
                             </table>
                         <?php } ?>
-                        <table cellspacing="0" cellpadding="0" align="left">
+                        <table cellspacing="0" cellpadding="0" align="left" style="float: left;">
                             <tbody>
                                 <tr>
                                     <td style="padding: 0;font-family: Lexia, Arial, sans-serif;letter-spacing: normal; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
@@ -456,7 +456,7 @@ if ($siggen_design_template == 0) {
                 <tr>
                     <td style="padding: 30px 0 0 30px; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
                         <?php if ($siggen_design_logo) { ?>
-                            <table cellspacing="0" cellpadding="0" align="left">
+                            <table cellspacing="0" cellpadding="0" align="left" style="float: left;">
                                 <tbody>
                                     <tr>
                                         <td style="float: left;padding: 0 30px 30px 0; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
@@ -466,7 +466,7 @@ if ($siggen_design_template == 0) {
                                 </tbody>
                             </table>
                         <?php } ?>
-                        <table cellspacing="0" cellpadding="0" align="left">
+                        <table cellspacing="0" cellpadding="0" align="left" style="float: left;">
                             <tbody>
                                 <tr>
                                     <td style="float: left;padding: 0 0 0 30px;font-family: Work Sans, Arial, sans-serif;border-left: 2px solid <?php echo $siggen_design_theme_color; ?>;margin: 0; mso-line-height:exactly;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;line-height:100%;word-break:break-word;">
